@@ -1,0 +1,11 @@
+<%Marca 'Scriptlet', para fluxo de controle, sem saída
+<%_Marca Scriptlet 'Whitespace Slurping', remove todos os espaços em branco antes dela
+<%=Gera o valor no modelo (HTML escapado)
+<%-Gera o valor sem escape no modelo
+<%#Tag de comentário, sem execução, sem saída
+<%%Gera um literal '<%'
+%>Marca final simples
+-%>Tag do modo de corte ('newline slurp'), apara seguindo a nova linha
+_%>Tag de finalização 'Whitespace Slurping', remove todos os espaços em branco depois dela
+
+Documentação: https://ejs.co/
