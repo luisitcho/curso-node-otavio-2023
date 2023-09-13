@@ -1,0 +1,47 @@
+<%- include('includes/header')%>
+
+<main class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-2">
+
+            </div>
+            <div class="col-xl-8 my-5">
+                <h1 class="text-center">Contato</h1>
+                <p class="text-center lead">Crie ou edite o contato abaixo!</p>
+
+                <%- include('includes/messages')%>
+
+                <% if(contact._id) { %>
+                <form action="/contact/edit/<%= contact._id %>" method="POST" class="mt-3">
+                <% } else { %>
+                <form action="/contact/register" method="POST" class="mt-3">
+                <% } %>
+
+                    <div class="form-group mb-3">
+                        <input type="hidden" name="_csrf" value="<%- csrfToken %>">
+                        <label for="email">Nome</label>
+                        <input type="text" class="form-control mb-3" value="<%= contact.name %>" name="name" aria-describedby="emailHelp" placeholder="Digite seu nome">
+                        
+                        <label for="email">Sobrenome</label>
+                        <input type="text" class="form-control mb-3" value="<%= contact.lastname %>" name="lastname" aria-describedby="emailHelp" placeholder="Digite seu sobrenome">
+
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control mb-3" value="<%= contact.email %>" name="email" aria-describedby="emailHelp" placeholder="Digite seu e-mail">
+
+                        <label for="email">Telefone</label>
+                        <input type="tel" class="form-control mb-3" value="<%= contact.phone %>" name="phone" aria-describedby="emailHelp" placeholder="Digite seu telefone">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+
+            </div>
+            <div class="col-xl-2">
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('includes/footer')%>

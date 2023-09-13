@@ -1,0 +1,83 @@
+<%- include('includes/header')%>
+
+<main class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-2">
+
+            </div>
+            <div class="col-xl-8 my-5">
+                <h1 class="text-center">Login</h1>
+                <p class="text-center lead">Faça login ou crie sua conta abaixo</p>
+
+                <%- include('includes/messages'); %>
+
+                <div class="row">
+
+                    <div class="col-xl-6 my-5">
+                        <h4>Faça seu cadastro</h4>
+                        <small class="form-text text-muted">Se você ainda não tem conta, preencha o formulário abaixo!</small>
+
+                        <form action="/login/register" method="POST" class="js-form-register">
+                            <div class="form-group mb-3">
+                                <input type="hidden" name="_csrf" value="<%- csrfToken %>">
+                                <label for="email">E-mail</label>
+                                <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Digite seu e-mail">
+                                <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos seu e-mail com mais ninguém.</small>
+                                <small class="js-email-error form-text invalid-feedback"></small>
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <label for="password">Senha</label>
+                                <input type="password" class="js-input-password form-control" name="password" placeholder="Digite sua senha"></input>
+                                <small class="js-password-error form-text invalid-feedback"></small>
+                            </div>
+
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="js-check-creat-password form-check-input">
+                                <small class="form-check-label form-text text-muted">Mostrar senha</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Criar conta</button>
+                        </form>
+
+                    </div>
+
+                    <div class="col-xl-6 my-5">
+                        <h4>Faça seu login</h4>
+                        <small class="form-text text-muted">Se você já tem uma conta, faça login abaixo:</small>
+
+                        <form action="/login/login" method="POST" class="js-form-login">
+                            <div class="form-group mb-3">
+                                <input type="hidden" name="_csrf" value="<%- csrfToken %>">
+                                <label for="email">E-mail</label>
+                                <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Digite seu e-mail">
+                                <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos seu e-mail com mais ninguém.</small>
+                                <small class="js-email-error form-text invalid-feedback"></small>
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <label for="password">Senha</label>
+                                <input type="password" class="js-login-password form-control" name="password" placeholder="Digite sua senha"></input>
+                                <small class="js-password-error form-text invalid-feedback"></small>
+                            </div>
+
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="js-check-login-password form-check-input">
+                                <small class="form-check-label form-text text-muted">Mostrar senha</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Entrar</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xl-2">
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('includes/footer')%>
